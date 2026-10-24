@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Validates this theme before it is published to the Camillia Community Hub:
-// hub.json declares the extension id and the closed theme file set, and
+// extension.json declares the extension id and the closed theme file set, and
 // theme.json follows the theme contract (see extension-guidelines,
 // docs/manifest-and-publishing.md "Theme contract").
 // Zero dependencies; run with Node 22 or later:
@@ -33,33 +33,33 @@ function isForbiddenValue(value) {
   );
 }
 
-// 1. hub.json declares the extension id, the theme kind and the closed file set.
+// 1. extension.json declares the extension id, the theme kind and the closed file set.
 let hub;
 try {
-  hub = JSON.parse(await readFile(join(repoRoot, 'hub.json'), 'utf8'));
+  hub = JSON.parse(await readFile(join(repoRoot, 'extension.json'), 'utf8'));
 } catch {
-  failures.push('hub.json is missing or not valid JSON.');
+  failures.push('extension.json is missing or not valid JSON.');
 }
 if (hub) {
   if (typeof hub.id !== 'string' || !KEBAB_ID.test(hub.id)) {
-    failures.push("hub.json must declare a unique kebab-case extension 'id'.");
+    failures.push("extension.json must declare a unique kebab-case extension 'id'.");
   }
   if (hub.kind !== 'theme') {
-    failures.push(`hub.json kind must be 'theme' (found '${hub.kind}').`);
+    failures.push(`extension.json kind must be 'theme' (found '${hub.kind}').`);
   }
   const include = Array.isArray(hub.include) ? hub.include : [];
   if (include.length === 0) {
-    failures.push("hub.json must list the published files in 'include'.");
+    failures.push("extension.json must list the published files in 'include'.");
   }
   for (const rel of include) {
     if (!ALLOWED_FILES.has(rel)) {
       failures.push(
-        `hub.json include: '${rel}' is outside the theme file set (theme.json, preview.png, preview.jpg).`,
+        `extension.json include: '${rel}' is outside the theme file set (theme.json, preview.png, preview.jpg).`,
       );
     }
   }
   if (!include.includes('theme.json')) {
-    failures.push("hub.json include must contain 'theme.json'.");
+    failures.push("extension.json include must contain 'theme.json'.");
   }
 }
 

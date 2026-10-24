@@ -54,7 +54,7 @@ appearance settings, alongside the built-in light/dark choice.
 
 ## Validation
 
-`node scripts/validate.mjs` checks `hub.json` and the theme contract: parseable
+`node scripts/validate.mjs` checks `extension.json` and the theme contract: parseable
 `theme.json`, `base` dark|light, at most 64 tokens, `--*` token keys, plain
 color/font-stack values, and the closed file set (`theme.json` plus optional
 `preview.png`/`preview.jpg`). CI runs it on every push.
