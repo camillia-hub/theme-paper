@@ -1,0 +1,1 @@
+{"id": "paper", "name": "Paper", "slug": "theme-paper", "kind": "theme", "description": "A warm paper light theme: cream surfaces, sepia text and a quiet amber accent.", "version": "1.0.0", "priceMinor": 0, "currency": "USD", "releaseNotes": "First public release of Paper.", "include": ["theme.json"]}

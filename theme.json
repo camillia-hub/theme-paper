@@ -1,0 +1,18 @@
+{
+  "name": "Paper",
+  "base": "light",
+  "tokens": {
+    "--cam-bg": "#f6f1e7",
+    "--cam-surface": "#fdfaf3",
+    "--cam-surface-raised": "#ffffff",
+    "--cam-text": "#3f382a",
+    "--cam-text-muted": "#8a7d63",
+    "--cam-accent": "#b45309",
+    "--cam-accent-strong": "#92400e",
+    "--cam-on-accent": "#fffaf0",
+    "--cam-border": "#e4d9c3",
+    "--cam-success": "#4d7c0f",
+    "--cam-danger": "#b91c1c",
+    "--cam-font-base": "Georgia, 'Times New Roman', serif"
+  }
+}
